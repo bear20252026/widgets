@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Widgets — small interactive components</title>
+    <meta name="description" content="A small shelf of self-contained interactive widgets, each kept as its own build." />
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        --paper: #f1ede3;
+        --ink: #171512;
+        --muted: #767066;
+        --line: #d7d0c2;
+        --accent: #6c4cf1;
+        --violet: #a58cff;
+      }
+      * { box-sizing: border-box; }
+      ::selection { background: var(--accent); color: var(--paper); }
+      html { background: var(--paper); }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(23,21,18,.025) 1px, transparent 1px) 0 0 / 72px 72px,
+          var(--paper);
+        font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main { width: min(100% - 64px, 1240px); margin: 0 auto; padding: 48px 0 38px; }
+      header { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+      h1 { margin: 0; font-size: clamp(54px, 9vw, 92px); line-height: .82; letter-spacing: -.055em; font-weight: 800; }
+      h1 em { color: var(--accent); font-style: normal; }
+      .meta { padding-bottom: 2px; text-align: right; color: var(--muted); font: 10px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
+      .meta b { display: block; color: var(--ink); font-weight: 700; letter-spacing: .04em; }
+      .lede { display: grid; grid-template-columns: 1fr 300px; gap: 44px; padding: 26px 0 34px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+      .lede p { margin: 0; }
+      .lede p:first-child { color: #4f4a42; max-width: 760px; }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+      .widget { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); background: #faf8f2; color: inherit; text-decoration: none; transition: border-color .2s, transform .2s; }
+      .widget:hover { border-color: var(--accent); transform: translateY(-2px); }
+      .plate { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #e9e3d8; border-bottom: 1px solid var(--line); }
+      .plate img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .body { padding: 18px 20px 20px; }
+      .num { float: right; color: #9b9487; font: 10px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .08em; }
+      h2 { margin: 0 0 7px; font-size: 27px; line-height: 1.05; letter-spacing: -.025em; font-weight: 750; }
+      .body p { margin: 0 0 16px; color: #615b51; font-size: 13px; line-height: 1.55; }
+      .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+      .tags span { padding: 4px 9px 3px; border: 1px solid #d9d2c5; border-radius: 999px; color: #716a5e; font: 9px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .09em; text-transform: uppercase; }
+      footer { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.6; }
+      footer span { flex: 1 1 240px; }
+      footer a { color: inherit; text-underline-offset: 3px; }
+      @media (max-width: 900px) { .lede { grid-template-columns: 1fr; gap: 12px; } }
+      @media (max-width: 720px) { main { width: min(100% - 28px, 620px); padding-top: 28px; } header { align-items: start; flex-direction: column; gap: 15px; } .meta { text-align: left; } .grid { grid-template-columns: 1fr; } footer { display: block; } footer span { display: block; margin-bottom: 10px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Widgets<em>.</em></h1>
+        <div class="meta">
+          <b>01 component set</b>
+          small, self-contained<br />
+          no framework, no wrapper
+        </div>
+      </header>
+
+      <div class="lede">
+        <p>One cabinet for interactive bits that do not need a world around them: controls, effects, toys and interface studies, each shipped as its own folder with its own files.</p>
+        <p>A parallel shelf to Games, kept separate from the interface and library collections.</p>
+      </div>
+
+      <section class="grid" aria-label="Widgets">
+        <a class="widget" href="./sakuga-vfx/">
+          <span class="plate">
+            <img src="./sakuga-vfx/preview.jpg" alt="Sakuga VFX anime button with impact burst" />
+          </span>
+          <div class="body">
+            <span class="num">01</span>
+            <h2>Sakuga VFX</h2>
+            <p>Twelve ordinary UI controls that react like anime: springs, squash, smoke bursts, slashes and manga sound-effect lettering. One file each, no dependencies.</p>
+            <div class="tags"><span>12 controls</span><span>vanilla JS</span><span>no dependencies</span><span>MIT</span></div>
+          </div>
+        </a>
+      </section>
+
+      <footer>
+        <span>Widgets · one set · November 2026</span>
+        <span>Source: <a href="https://github.com/bear20252026/sakuga-vfx">sakuga-vfx</a></span>
+        <span style="flex-basis:100%;color:#8f8a7e">Sakuga VFX is by <a href="https://github.com/finktheartist/sakuga-vfx" style="color:inherit">Fink</a>, MIT licensed. The local copy is a full static mirror of the gallery and all twelve components.</span>
+      </footer>
+    </main>
+  </body>
+</html>
